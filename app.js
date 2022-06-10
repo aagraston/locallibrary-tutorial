@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -10,7 +12,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://m001-student:zBm32zBl@cluster0.itw9d.mongodb.net/local_library?retryWrites=true&w=majority';
+var mongoDB = process.env.MONGO_DB_CONNECTION;
 
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 
