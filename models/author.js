@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {DateTime} = require('luxon')
 
 const Schema = mongoose.Schema
 
@@ -47,7 +48,7 @@ AuthorSchema
 AuthorSchema
 .virtual('url')
 .get(function() {
-  return '/catalog/author' + this._id
+  return 'author/' + this._id
 })
 
 module.exports = mongoose.model('Author', AuthorSchema)
